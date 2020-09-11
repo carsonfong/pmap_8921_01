@@ -1,0 +1,25 @@
+---
+title: "Exercise 1"
+author: "Carson Fong"
+output:
+  html_document: default
+  word_document: default
+---
+
+# Load packages and data
+
+```{r load-libraries-data, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+cars <- read_csv("data/cars.csv")
+```
+
+# Plot 2008 cars (Engine Displacement vs City Mileage, color denotes drivetrain)
+```{r manipulate-and-plot, fig.height=4, fig.width=6}
+cars_2008 <- cars %>%
+  filter(year == 2008)
+
+ggplot(cars_2008, aes(x=displ, y=cty, color = drv)) +
+  geom_point()
+
+```
